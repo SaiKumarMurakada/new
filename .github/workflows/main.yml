@@ -9,7 +9,8 @@ on:
     branches: 
         - main 
     paths: 
-        - 'DWCode/**'
+        - 'DWCode/CareTeam/Functions/**'
+        - 'DWCode/CareTeam/Procedures/**'
   
   #pull_request:
    # branches: [ "main" ]
@@ -51,4 +52,4 @@ jobs:
           pip install schemachange
           echo "Step 2: Running schemachange "
           schemachange -f $GITHUB_WORKSPACE/DWCode/CareTeam/Functions     -a $SF_ACCOUNT -u $SF_USERNAME -r $SF_ROLE -w $SF_WAREHOUSE -d $SF_DATABASE -c $SF_DATABASE.SCHEMACHANGE.CHANGE_HISTORY --create-change-history-table -ac
-       
+          schemachange -f $GITHUB_WORKSPACE/DWCode/CareTeam/Procedures     -a $SF_ACCOUNT -u $SF_USERNAME -r $SF_ROLE -w $SF_WAREHOUSE -d $SF_DATABASE -c $SF_DATABASE.SCHEMACHANGE.CHANGE_HISTORY --create-change-history-table -ac
